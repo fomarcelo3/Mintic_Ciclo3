@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Representa a un usuario administativo
- * @author desaextremo
+ * @author Fredy
  */
 
 @Entity

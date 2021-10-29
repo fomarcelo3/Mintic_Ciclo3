@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Representa a una categoria en la que se clasifican los disfraces
- * @author desaextremo
+ * @author Fredy
  */
 @Entity
 @Table(name = "category")

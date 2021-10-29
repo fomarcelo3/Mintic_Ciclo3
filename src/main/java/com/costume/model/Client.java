@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Representa a un cliente
- * @author desaextremo
+ * @author Fredy
  */
 @Entity
 @Table(name = "client")

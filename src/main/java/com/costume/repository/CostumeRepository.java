@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.costume.repository.crud.CostumeCrudRepository;
 
+//repositorio clase Costume
 @Repository
 public class CostumeRepository {
     @Autowired
@@ -22,5 +23,9 @@ public class CostumeRepository {
     
     public Costume save(Costume costume){
         return costumeCrudRepository.save(costume);
+    }
+
+    public  void delete(Costume costume){
+        costumeCrudRepository.delete(costume);
     }
 }

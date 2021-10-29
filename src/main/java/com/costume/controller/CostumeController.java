@@ -5,18 +5,11 @@ import com.costume.service.CostumeService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
- *
- * @author desaextremo
+ * Controlador entidad Costume
+ * @author Fredy
  */
 
 @RestController
@@ -36,4 +29,19 @@ public class CostumeController {
     public Costume save(@RequestBody Costume costume){
         return costumeService.save(costume);
     }
+
+    //Metodo para eliminar un elemento de la entidad Costume
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean deleteCostume(@PathVariable int id){
+        return  costumeService.deleteCostume(id);
+    }
+
+    //metodo para actualizar un elemneto de  la entidad Costume
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Costume updateCostume(@RequestBody Costume costume){
+        return  costumeService.update(costume);
+    }
+
 }

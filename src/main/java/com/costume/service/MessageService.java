@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+//Servicio entidad message
 @Service
 public class MessageService {
 
@@ -27,6 +28,16 @@ public class MessageService {
             } else {
                 return message;
             }
+        }
+    }
+
+    public boolean deleteMessage(int id){
+        Optional<Message>  message = messageRepository.getMessage(id);
+        if (message.isEmpty()){
+            return  false;
+        }else {
+            messageRepository.delete(message.get());
+            return  true;
         }
     }
 }

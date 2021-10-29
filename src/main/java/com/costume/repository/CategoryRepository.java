@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-
+//clase repositoria de la entidad Category
 @Repository
 public class CategoryRepository {
     @Autowired
@@ -25,5 +25,9 @@ public class CategoryRepository {
   
     public Category save(Category category){
         return categoryCrudRepository.save(category);
+    }
+
+    public  void  delete(Category category){
+        categoryCrudRepository.delete(category);
     }
 }

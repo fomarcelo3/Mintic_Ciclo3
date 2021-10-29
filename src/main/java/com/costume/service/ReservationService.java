@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+//Servicio entidad Reservation
 @Service
 public class ReservationService {
     @Autowired
@@ -26,6 +27,16 @@ public class ReservationService {
             } else {
                 return reservation;
             }
+        }
+    }
+
+    public boolean deleteReservation(int id){
+        Optional<Reservation> reservation  = reservationRepository.getReservation(id);
+        if (reservation.isEmpty()){
+            return  false;
+        }else {
+            reservationRepository.delete(reservation.get());
+            return  true;
         }
     }
 }

@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Representa a un disfraz de los que se rentan en la tienda
- * @author desaextremo
+ * @author Fredy
  */
 @Entity
 @Table(name = "costume")

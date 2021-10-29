@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+//Servicio clase admin
 @Service
 public class AdminService {
     @Autowired
@@ -26,6 +27,39 @@ public class AdminService {
             } else {
                 return admin;
             }
+        }
+    }
+
+    public Admin updateAdmin(Admin admin){
+        if (admin.getIdAdmin() != null){
+            Optional<Admin>  admin_bd = adminRepository.getAdmin(admin.getIdAdmin());
+            if (!admin_bd.isEmpty()){
+                if (admin.getEmail() != null){
+                    admin_bd.get().setEmail(admin.getEmail());
+                }
+
+                if (admin.getPassword() != null){
+                    admin_bd.get().setPassword(admin.getPassword());
+                }
+
+                if (admin.getName()!=null){
+                    admin_bd.get().setName(admin.getName());
+                }
+                return adminRepository.save(admin);
+            }
+        }
+
+        return admin;
+
+    }
+
+    public boolean deleteAdmin(int id){
+        Optional<Admin>  admin = adminRepository.getAdmin(id);
+        if (admin.isEmpty()){
+            return  false;
+        }else {
+            adminRepository.delete(admin.get());
+            return  true;
         }
     }
 }

@@ -5,18 +5,11 @@ import com.costume.service.CategoryService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Controlador de Categorias
- * @author desaextremo
+ * @author Fredy
  */
 @RestController
 @RequestMapping("/api/Category")
@@ -24,15 +17,31 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
-    
+
+    //Metodo para obtener todos los registros de la entidad Category
     @GetMapping("/all")
     public List<Category> getAll(){
         return categoryService.getAll();
     }
-    
+
+    //Metodo para registrar un nuevo elemento de la entidad Category
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Category save(@RequestBody Category category){
         return categoryService.save(category);
+    }
+
+    //Metodo para actualizar un elemento de la entidad category
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Category updateCategory(@RequestBody Category category){
+        return categoryService.updateCategory(category);
+    }
+
+    ////Metodo para eliminar un elemento de la entidad category
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean deleteCategory(@PathVariable int id){
+        return  categoryService.deleteCategory(id);
     }
 }

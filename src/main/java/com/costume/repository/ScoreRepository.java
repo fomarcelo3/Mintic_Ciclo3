@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 
+//Clase repositorio entidad Score
 @Repository
 public class ScoreRepository {
     @Autowired
@@ -23,5 +24,9 @@ public class ScoreRepository {
   
     public Score save(Score score){
         return scoreCrudRepository.save(score);
+    }
+
+    public  void delete(Score score){
+        scoreCrudRepository.delete(score);
     }
 }

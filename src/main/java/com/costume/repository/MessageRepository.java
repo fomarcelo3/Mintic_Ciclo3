@@ -13,8 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
- *
- * @author desaextremo
+ * Clase repositorio entidad Message
+ * @author Fredy
  */
 @Repository
 public class MessageRepository {
@@ -29,5 +29,8 @@ public class MessageRepository {
     }
     public Message save(Message message){
         return messageCrudRepository.save(message);
+    }
+    public  void delete(Message message){
+        messageCrudRepository.delete(message);
     }
 }

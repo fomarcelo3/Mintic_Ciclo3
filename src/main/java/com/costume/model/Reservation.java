@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * Representa a una reserva por un disfraz
- * @author desaextremo
+ * @author Fredy
  */
 @Entity
 @Table(name = "reservation")

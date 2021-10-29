@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+//Clase repositorio de la entidad Client
 @Repository
 public class ClientRepository {
     @Autowired
@@ -22,5 +23,9 @@ public class ClientRepository {
     
     public Client save(Client client){
         return clientCrudRepository.save(client);
+    }
+
+    public  void  delete(Client client){
+        clientCrudRepository.delete(client);
     }
 }

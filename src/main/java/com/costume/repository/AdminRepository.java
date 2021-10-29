@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 
+//Clase repositorio de la entidad Admin
 @Repository
 public class AdminRepository {
     @Autowired
@@ -22,5 +23,9 @@ public class AdminRepository {
   
     public Admin save(Admin admin){
         return adminCrudRepository.save(admin);
+    }
+
+    public  void  delete(Admin admin){
+        adminCrudRepository.delete(admin);
     }
 }

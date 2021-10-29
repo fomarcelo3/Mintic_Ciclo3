@@ -15,8 +15,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- *
- * @author desaextremo
+ * Clase representa entidad Message
+ * @author Fredy
  */
 @Entity
 @Table(name = "message")
