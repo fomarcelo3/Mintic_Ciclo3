@@ -3,6 +3,8 @@ package com.costume.controller;
 import com.costume.model.Costume;
 import com.costume.service.CostumeService;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,11 @@ public class CostumeController {
     @GetMapping("/all")
     public List<Costume> getAll(){
         return costumeService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Costume> getCostume(@PathVariable int id){
+        return costumeService.getCostume(id);
     }
     
     @PostMapping("/save")

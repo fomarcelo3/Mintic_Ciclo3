@@ -16,6 +16,10 @@ public class AdminService {
     public List<Admin> getAll(){
        return adminRepository.getAll();
     }
+
+    public Optional<Admin> getAdmin(int id){
+       return adminRepository.getAdmin(id);
+    }
     
     public Admin save(Admin admin) {
         if (admin.getIdAdmin() == null) {

@@ -17,6 +17,9 @@ public class MessageService {
     public List<Message> getAll() {
         return messageRepository.getAll();
     }
+    public Optional<Message> getMessage(int id) {
+        return messageRepository.getMessage(id);
+    }
 
     public Message save(Message message) {
         if (message.getIdMessage() == null) {
@@ -30,6 +33,24 @@ public class MessageService {
             }
         }
     }
+
+    public  Message update(Message message){
+        if (message.getIdMessage() != null){
+            Optional<Message> message_bd = messageRepository.getMessage(message.getIdMessage());
+
+            if (!message_bd.isEmpty()){
+                if (message.getMessageText() != null){
+                    message_bd.get().setMessageText(message.getMessageText());
+                }
+
+                messageRepository.save(message_bd.get());
+                return message_bd.get();
+            }
+        }
+
+        return  message;
+    }
+
 
     public boolean deleteMessage(int id){
         Optional<Message>  message = messageRepository.getMessage(id);

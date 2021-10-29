@@ -3,6 +3,8 @@ package com.costume.controller;
 import com.costume.model.Category;
 import com.costume.service.CategoryService;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,12 @@ public class CategoryController {
     @GetMapping("/all")
     public List<Category> getAll(){
         return categoryService.getAll();
+    }
+
+    //Metodo para obtener un registro de la entidad Category
+    @GetMapping("/{id}")
+    public Optional<Category> getAdmin(@PathVariable int id){
+        return categoryService.getCategory(id);
     }
 
     //Metodo para registrar un nuevo elemento de la entidad Category

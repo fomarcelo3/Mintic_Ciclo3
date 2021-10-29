@@ -17,6 +17,9 @@ public class CostumeService {
     public List<Costume> getAll() {
         return costumeRepository.getAll();
     }
+    public Optional<Costume> getCostume(int id) {
+        return costumeRepository.getCostume(id);
+    }
 
     public Costume save(Costume costume) {
         if (costume.getId() == null) {

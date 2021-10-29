@@ -3,6 +3,8 @@ package com.costume.controller;
 import com.costume.model.Client;
 import com.costume.service.ClientService;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,12 @@ public class ClientController {
     @GetMapping("/all")
     public List<Client> getAll(){
         return clientService.getAll();
+    }
+
+    //Metodo listar un elemento entidad Client
+    @GetMapping("/{id}")
+    public Optional<Client> getClient(int id){
+        return clientService.getClient(id);
     }
 
     //Metodo registrar un elemento entidad Client

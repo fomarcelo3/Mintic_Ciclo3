@@ -18,6 +18,10 @@ public class ScoreService {
     public List<Score> getAll(){
        return scoreRepository.getAll();
     }
+
+    public  Optional<Score> getScore(int id){
+        return scoreRepository.getScore(id);
+    }
     
     public Score save(Score score) {
         if (score.getIdScore() == null) {
