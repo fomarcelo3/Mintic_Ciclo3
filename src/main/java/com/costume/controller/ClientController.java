@@ -28,7 +28,7 @@ public class ClientController {
 
     //Metodo listar un elemento entidad Client
     @GetMapping("/{id}")
-    public Optional<Client> getClient(int id){
+    public Optional<Client> getClient(@PathVariable int id){
         return clientService.getClient(id);
     }
 
