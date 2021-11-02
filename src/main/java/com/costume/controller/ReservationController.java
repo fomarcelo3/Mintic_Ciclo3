@@ -1,5 +1,7 @@
 package com.costume.controller;
 
+import com.costume.model.Report.CountClient;
+import com.costume.model.Report.StatusAmount;
 import com.costume.model.Reservation;
 import com.costume.service.ReservationService;
 import java.util.List;
@@ -49,5 +51,23 @@ public class ReservationController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean deleteReservation(@PathVariable int id){
         return  reservationService.deleteReservation(id);
+    }
+
+    //Metodo para reporte de reservas por fecha
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getReservationsReportDates(@PathVariable("dateOne") String dateOne,@PathVariable("dateTwo") String dateTwo){
+        return reservationService.getReservationsPeriod(dateOne,dateTwo);
+    }
+
+    //metodo de reporte de reservas por estado
+    @GetMapping("/report-status")
+    public StatusAmount getReservationsStatusReport(){
+        return reservationService.getReservationsStatusReport();
+    }
+
+    //metodp de reporte de clientes con mas reservas
+    @GetMapping("/report-clients")
+    public List<CountClient> getReservationsReportClient(){
+        return reservationService.getTopClients();
     }
 }
